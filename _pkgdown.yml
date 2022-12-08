@@ -1,0 +1,34 @@
+url: https://vistas.tidyverts.org
+
+template:
+  params:
+    bootswatch: cosmo
+  includes:
+    in_header: |
+      <script defer data-domain="vistas.tidyverts.org" src="https://track.mitchelloharawild.com/js/plausible.js"></script>
+
+development:
+  mode: auto
+
+authors:
+  Rob Hyndman:
+    href: http://robjhyndman.com
+  Mitchell O'Hara-Wild:
+    href: https://mitchelloharawild.com
+  Earo Wang:
+    href: https://earo.me
+
+navbar:
+  type: default
+  left:
+  - text: Reference
+    href: reference/index.html
+  - text: Changelog
+    href: news/index.html
+  - text: Vignettes
+    menu:
+    - text: Introduction to vistas
+      href: articles/vistas.html
+  right:
+  - icon: fa-github fa-lg
+    href: https://github.com/tidyverts/vistas
