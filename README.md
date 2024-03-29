@@ -1,34 +1,34 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# vistas
+# ggtime
 
 <!-- badges: start -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/vistas)](https://CRAN.R-project.org/package=vistas)
+status](https://www.r-pkg.org/badges/version/ggtime)](https://CRAN.R-project.org/package=ggtime)
 <!-- badges: end -->
 
-The vistas package provides tools for graphically analysing time series,
+The ggtime package provides tools for graphically analysing time series,
 with exploration of trend and seasonality. It utilises the tsibble data
 format for time series and produces plots with ggplot2.
 
 ## Installation
 
-You can install the development version of vistas from
+You can install the development version of ggtime from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("tidyverts/vistas")
+remotes::install_github("tidyverts/ggtime")
 ```
 
 ## Example
 
 ``` r
-library(vistas)
+library(ggtime)
 library(tsibble)
 #> 
 #> Attaching package: 'tsibble'

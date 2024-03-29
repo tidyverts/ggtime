@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(vistas)
+library(ggtime)
 
-test_check("vistas")
+test_check("ggtime")

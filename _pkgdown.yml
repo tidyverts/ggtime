@@ -1,11 +1,11 @@
-url: https://vistas.tidyverts.org
+url: https://ggtime.tidyverts.org
 
 template:
   params:
     bootswatch: cosmo
   includes:
     in_header: |
-      <script defer data-domain="vistas.tidyverts.org" src="https://track.mitchelloharawild.com/js/plausible.js"></script>
+      <script defer data-domain="ggtime.tidyverts.org" src="https://track.mitchelloharawild.com/js/plausible.js"></script>
 
 development:
   mode: auto
@@ -27,8 +27,8 @@ navbar:
     href: news/index.html
   - text: Vignettes
     menu:
-    - text: Introduction to vistas
-      href: articles/vistas.html
+    - text: Introduction to ggtime
+      href: articles/ggtime.html
   right:
   - icon: fa-github fa-lg
-    href: https://github.com/tidyverts/vistas
+    href: https://github.com/tidyverts/ggtime

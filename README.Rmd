@@ -13,28 +13,28 @@ knitr::opts_chunk$set(
 )
 ```
 
-# vistas
+# ggtime
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/vistas)](https://CRAN.R-project.org/package=vistas)
+[![CRAN status](https://www.r-pkg.org/badges/version/ggtime)](https://CRAN.R-project.org/package=ggtime)
 <!-- badges: end -->
 
-The vistas package provides tools for graphically analysing time series, with exploration of trend and seasonality. It utilises the tsibble data format for time series and produces plots with ggplot2.
+The ggtime package provides tools for graphically analysing time series, with exploration of trend and seasonality. It utilises the tsibble data format for time series and produces plots with ggplot2.
 
 ## Installation
 
-You can install the development version of vistas from [GitHub](https://github.com/) with:
+You can install the development version of ggtime from [GitHub](https://github.com/) with:
 
 ```r
 # install.packages("remotes")
-remotes::install_github("tidyverts/vistas")
+remotes::install_github("tidyverts/ggtime")
 ```
 
 ## Example
 
 ```{r example}
-library(vistas)
+library(ggtime)
 library(tsibble)
 tsibbledata::aus_production %>% 
   autoplot(Bricks)
