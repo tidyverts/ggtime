@@ -29,5 +29,6 @@ RoxygenNote: 7.2.3
 Imports: 
     lifecycle,
     rlang,
+    timechange,
     tsibble
 VignetteBuilder: knitr

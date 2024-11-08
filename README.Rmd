@@ -36,7 +36,24 @@ remotes::install_github("tidyverts/ggtime")
 ```{r example}
 library(ggtime)
 library(tsibble)
+library(ggplot2)
 tsibbledata::aus_production %>% 
   autoplot(Bricks)
+
+cal_trans_x <- function() {
+  scales::trans_new(
+    name = "calendar",
+    transform = ggtime:::calendar_wrap,
+    inverse = identity,
+    breaks = scales::breaks_pretty(),
+    domain = c(0, 60*60*24*7)
+  )
+}
+
+pedestrian[with(pedestrian, Sensor == "Southern Cross Station" & Date < "2015-03-01"),] |> 
+  autoplot(Count) +
+  # coord_calendar(xlim = c(Sys.time(), Sys.Date() + lubridate::days(1)))
+  ggplot2::coord_trans(x = cal_trans_x(), xlim = as.POSIXct(c("2024-03-25 00:00:00", "2024-03-31 23:59:59"))) +
+  scale_x_datetime(date_breaks = "day", date_labels = "%a")
 ```
 
