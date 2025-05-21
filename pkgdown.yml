@@ -3,7 +3,7 @@ pkgdown: 2.1.2
 pkgdown_sha: ~
 articles:
   ggtime: ggtime.html
-last_built: 2025-05-21T01:49Z
+last_built: 2025-05-21T11:19Z
 urls:
   reference: https://ggtime.tidyverts.org/reference
   article: https://ggtime.tidyverts.org/articles
