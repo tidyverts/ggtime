@@ -659,7 +659,6 @@ gg_tsdisplay <- function(data, y = NULL, plot_type = c("auto", "partial", "seaso
   } else if(plot_type == "scatter"){
     p3 <- data %>%
       mutate(!!paste0(as_name(y),"_lag") := lag(!!y, 1)) %>%
-      .[complete.cases(.),] %>%
       ggplot(aes(y = !!y, x = !!sym(paste0(as_name(y),"_lag")))) +
       geom_point() +
       xlab(expression(Y[t - 1])) + ylab(expression(Y[t]))
@@ -675,8 +674,7 @@ gg_tsdisplay <- function(data, y = NULL, plot_type = c("auto", "partial", "seaso
       }
       ggplot() + ggplot2::labs(x = "frequency", y = "spectrum")
     } else {
-      spec[["result"]] %>%
-        {tibble(spectrum = drop(.$spec), frequency = .$freq)} %>%
+      tibble(spectrum = drop(spec[["result"]]$spec), frequency = spec[["result"]]$freq) %>%
         ggplot(aes(x = !!sym("frequency"), y = !!sym("spectrum"))) +
         geom_line() +
         ggplot2::scale_y_log10()

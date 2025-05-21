@@ -1,4 +1,3 @@
-#' @export
 cal_gregorian <- function(period = "week", week_start = 1) {
   function(x) {
     if(any(!is.finite(x))) return(x)

@@ -224,7 +224,7 @@ test_that("gg_tsdisplay() plots", {
 
   expect_equal(
     ggplot2::layer_data(p[[3]], 1)$y,
-    tsbl_co2$value[-1]
+    tsbl_co2$value
   )
 
   p_built <- ggplot2::ggplot_build(p[[3]])

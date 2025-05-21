@@ -1,7 +1,7 @@
 ^ggtime\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
-^README\.Rmd$
+^README\.qmd$
 ^cran-comments\.md$
 ^\.github$
 ^_pkgdown\.yml$

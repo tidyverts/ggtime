@@ -40,7 +40,9 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0),
     tsibbledata,
-    feasts
+    feasts,
+    fable,
+    ggrepel
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -54,5 +56,8 @@ Imports:
     dplyr,
     tidyr,
     ggplot2,
-    lubridate
+    lubridate,
+    gtable,
+    scales,
+    vctrs
 VignetteBuilder: knitr

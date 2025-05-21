@@ -25,8 +25,7 @@ in a decomposition or model.
 \examples{
 \dontshow{if (requireNamespace("feasts", quietly = TRUE) && requireNamespace("tsibbledata", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 library(feasts)
-library(tsibbledata)
-aus_production \%>\%
+tsibbledata::aus_production \%>\%
   model(STL(Beer)) \%>\%
   components() \%>\%
   autoplot()

@@ -12,8 +12,7 @@
 #'
 #' @examplesIf requireNamespace("feasts", quietly = TRUE) && requireNamespace("tsibbledata", quietly = TRUE)
 #' library(feasts)
-#' library(tsibbledata)
-#' aus_production %>%
+#' tsibbledata::aus_production %>%
 #'   model(STL(Beer)) %>%
 #'   components() %>%
 #'   autoplot()
@@ -29,42 +28,25 @@ autoplot.dcmp_ts <- function(object, .vars = NULL, scale_bars = TRUE,
 
   .vars <- enquo(.vars)
   if(quo_is_null(.vars)){
-    .vars <- sym(response_vars(object))
+    .vars <- sym(fabletools::response_vars(object))
   }
   dcmp_str <- dcmp <- (object%@%"aliases")[[expr_name(get_expr(.vars))]]
   if(!is.null(dcmp_str)){
     dcmp_str <- expr_text(dcmp_str)
   }
-  object <- as_tsibble(object) %>%
-    transmute(!!.vars, !!!syms(all.vars(dcmp))) %>%
-    pivot_longer(measured_vars(.), values_to = ".val",
-                 names_to = ".var", names_transform = list(.var = ~ factor(., levels = unique(.))))
+  object <- dplyr::transmute(as_tsibble(object), !!.vars, !!!syms(all.vars(dcmp)))
+  object <- tidyr::pivot_longer(
+    object, measured_vars(object), values_to = ".val",
+    names_to = ".var", names_transform = list(.var = ~ factor(., levels = unique(.)))
+  )
 
-  if(has_dist <- inherits(object[[".val"]], "distribution")) {
-    interval_data <- as_tibble(object)
-    interval_data[paste0(level, "%")] <- lapply(level, hilo, x = interval_data[[".val"]])
-    interval_data <- tidyr::pivot_longer(
-      interval_data, paste0(level, "%"), names_to = NULL, values_to = "hilo"
-    )
-    intvl_aes <- aes(x = !!idx, hilo = !!sym("hilo"))
-    line_aes <- aes(x = !!idx, y = mean(!!sym(".val")))
-    if(n_keys > 1){
-      line_aes$colour <- intvl_aes$fill <- expr(interaction(!!!keys, sep = "/"))
-    }
-    dcmp_geom <- list(
-      distributional::geom_hilo_ribbon(intvl_aes, ..., data = interval_data),
-      geom_line(line_aes, ...)
-    )
-  } else {
-    line_aes <- aes(x = !!idx, y = !!sym(".val"))
-    if(n_keys > 1){
-      line_aes$colour <- expr(interaction(!!!keys, sep = "/"))
-    }
-    dcmp_geom <- geom_line(line_aes, ...)
+  line_aes <- aes(x = !!idx, y = !!sym(".val"))
+  if(n_keys > 1){
+    line_aes$colour <- expr(interaction(!!!keys, sep = "/"))
   }
+  dcmp_geom <- geom_line(line_aes, ...)
 
-  p <- object %>%
-    ggplot() +
+  p <- ggplot(object) +
     dcmp_geom +
     facet_grid(vars(!!sym(".var")), scales = "free_y") +
     ylab(NULL) +
@@ -81,12 +63,9 @@ autoplot.dcmp_ts <- function(object, .vars = NULL, scale_bars = TRUE,
     # Avoid issues with visible bindings
     ymin <- ymax <- center <- diff <- NULL
 
-    min_fn <- if(has_dist) function(x, ...) min(quantile(x, (100-max(level))/200), ...) else min
-    max_fn <- if(has_dist) function(x, ...) max(quantile(x, (100 + max(level))/200), ...) else max
-
     range_data <- as_tibble(object) %>%
       group_by(!!sym(".var")) %>%
-      summarise(ymin = min_fn(!!sym(".val"), na.rm = TRUE), ymax = max_fn(!!sym(".val"), na.rm = TRUE)) %>%
+      summarise(ymin = min(!!sym(".val"), na.rm = TRUE), ymax = max(!!sym(".val"), na.rm = TRUE)) %>%
       mutate(
         center = (ymin + ymax) / 2,
         diff = min(ymax - ymin),
