@@ -52,5 +52,7 @@ Imports:
     tsibble,
     fabletools,
     dplyr,
-    tidyr
+    tidyr,
+    ggplot2,
+    lubridate
 VignetteBuilder: knitr
