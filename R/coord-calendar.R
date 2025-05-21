@@ -1,6 +1,3 @@
-#' Calendar coordinates
-#'
-#' @export
 coord_calendar <- function(period = "week", xlim = NULL, ylim = NULL, expand = TRUE,
                            default = FALSE, clip = "on") {
   ggplot2::ggproto(NULL, CoordCalendar,
@@ -12,10 +9,6 @@ coord_calendar <- function(period = "week", xlim = NULL, ylim = NULL, expand = T
   )
 }
 
-#' @rdname ggplot2-ggproto
-#' @format NULL
-#' @usage NULL
-#' @export
 CoordCalendar <- ggplot2::ggproto("CoordCalendar", ggplot2::CoordCartesian,
   aspect = function(details) 1,
 
