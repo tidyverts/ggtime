@@ -1,3 +1,14 @@
 .Rproj.user
-docs
+.Rhistory
+.RData
+.Ruserdata
+Makefile
 inst/doc
+src/*.o
+src/*.so
+src/*.dll
+docs/
+doc
+Meta
+revdep
+.lintr
