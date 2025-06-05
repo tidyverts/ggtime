@@ -10,6 +10,8 @@
 #' @param level If the decomposition contains distributions, which levels should be used to display intervals?
 #' @inheritParams autoplot.tbl_ts
 #'
+#' @return A ggplot object showing a set of time plots of the decomposition.
+#'
 #' @examplesIf requireNamespace("feasts", quietly = TRUE) && requireNamespace("tsibbledata", quietly = TRUE)
 #' library(feasts)
 #' tsibbledata::aus_production %>%

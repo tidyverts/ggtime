@@ -17,6 +17,9 @@
 
 \item{...}{Further arguments passed to \code{\link[ggplot2:geom_path]{ggplot2::geom_line()}}, which can be used to specify fixed aesthetics such as \code{colour = "red"} or \code{size = 3}.}
 }
+\value{
+A ggplot object showing a set of time plots of the decomposition.
+}
 \description{
 Produces a faceted plot of the components used to build the response
 variable of the dable. Useful for visualising how the components contribute

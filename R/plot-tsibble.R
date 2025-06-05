@@ -8,6 +8,8 @@
 #' @param .vars A bare expression containing data you wish to plot. Multiple variables can be plotted using [`ggplot2::vars()`].
 #' @param ... Further arguments passed to [`ggplot2::geom_line()`], which can be used to specify fixed aesthetics such as `colour = "red"` or `size = 3`.
 #'
+#' @return A ggplot object showing a time plot of a time series.
+#'
 #' @examplesIf requireNamespace("fable", quietly = TRUE)
 #' library(fable)
 #' library(tsibbledata)

@@ -16,6 +16,9 @@
 
 \item{...}{Further arguments passed to \code{\link[ggplot2:geom_path]{ggplot2::geom_line()}}, which can be used to specify fixed aesthetics such as \code{colour = "red"} or \code{size = 3}.}
 }
+\value{
+A ggplot object showing a time plot of a time series.
+}
 \description{
 Produces a time series plot of one or more variables from a tsibble. If the
 tsibble contains a multiple keys, separate time series will be identified by
