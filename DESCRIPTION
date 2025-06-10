@@ -36,8 +36,6 @@ Description: Extends the capabilities of 'ggplot2' by providing grammatical
     including time plots, season plots, and seasonal sub-series plots.
 License: GPL (>= 3)
 Suggests: 
-    knitr,
-    rmarkdown,
     testthat (>= 3.0.0),
     tsibbledata,
     feasts,
@@ -60,4 +58,3 @@ Imports:
     gtable,
     scales,
     vctrs
-VignetteBuilder: knitr
