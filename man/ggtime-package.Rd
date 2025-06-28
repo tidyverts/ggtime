@@ -18,5 +18,10 @@ Authors:
   \item Rob Hyndman (\href{https://orcid.org/0000-0002-2140-5352}{ORCID})
 }
 
+Other contributors:
+\itemize{
+  \item Earo Wang (\href{https://orcid.org/0000-0001-6448-5260}{ORCID}) [contributor]
+}
+
 }
 \keyword{internal}

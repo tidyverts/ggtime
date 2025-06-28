@@ -26,6 +26,12 @@ Authors@R: c(
         family = "Hyndman",
         role = c("aut"),
         comment = c(ORCID = "0000-0002-2140-5352")
+      ),
+      person(
+        given = "Earo",
+        family = "Wang",
+        role = c("ctb"),
+        comment = c(ORCID = "0000-0001-6448-5260")
       )
     )
 Description: Extends the capabilities of 'ggplot2' by providing grammatical
